@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from usuarios.forms import LoginForms, CadastroForms
+from apps.usuarios.forms import LoginForms, CadastroForms
 from django.contrib.auth.models  import User
 from django.contrib import auth, messages
 
@@ -16,7 +16,7 @@ def login(request):
         usuario = auth.authenticate(
             request,
             username = nome, 
-            password = senha
+            password = senha,
         )
         if usuario is not None:
             auth.login(request, usuario)
